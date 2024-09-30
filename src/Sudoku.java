@@ -6,8 +6,7 @@ import javax.swing.*;
 
 public class Sudoku {
     protected int size, scale, borderSize, currentGridRow;
-    
-    Solver solver;
+
     private BufferedImage scaledImage;
     private Font font;
 
@@ -23,12 +22,10 @@ public class Sudoku {
     
     public boolean isFinished = false;
     
-    public Sudoku(String name, int scale, String board, Solver solver) throws IOException{
+    public Sudoku(String name, int scale, String board) throws IOException{
         this.windowName = name;
         this.scale = scale;
         this.borderSize = 4;
-
-        this.solver = solver;
         
         this.isr = new InputStreamReader(System.in);
         this.br = new BufferedReader(this.isr);

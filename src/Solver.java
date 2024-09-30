@@ -1,7 +1,12 @@
+import java.util.ArrayList;
+
 public abstract class Solver {
 
-    private int[][] grid;
-    private int size, sqrtSize;
+     int[][] grid;
+    protected int size;
+    private int sqrtSize;
+
+    public boolean solveFinish = false;
 
     public Solver(int[][] grid){
         this.grid = grid;
@@ -25,7 +30,7 @@ public abstract class Solver {
         return zoneCellsIndex;
     }
 
-    private boolean valide(int x, int y, int val){
+     boolean valide(int x, int y, int val){
         for(int i = 0; i < this.size; i++){
             if(i != x && this.grid[i][y] == val) return false;
             if(i != y && this.grid[x][i] == val) return false;
@@ -37,6 +42,8 @@ public abstract class Solver {
         return true;
     }
 
+    abstract public int[] searchFreeCell();
+    abstract public ArrayList<int[]> searchFreeCells();
     abstract public void solveStep();
     abstract public void solveFull();
 }
